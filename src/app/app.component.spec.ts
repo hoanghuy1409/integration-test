@@ -1,31 +1,27 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { Router } from "@angular/router";
+import { By } from "@angular/platform-browser";
+import { TestBed, async } from "@angular/core/testing";
+import { RouterTestingModule } from "@angular/router/testing";
 
-describe('AppComponent', () => {
+import { AppComponent } from "./app.component";
+
+describe("AppComponent", () => {
+  const fixture = TestBed.createComponent(AppComponent);
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
+      imports: [RouterTestingModule.withRoutes([])]
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it("should create the app", () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ng-integration-testing'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('ng-integration-testing');
-  });
+  it("should have a router outlet", () => {
+    const de = fixture.debugElement.query(By.directive(Router));
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ng-integration-testing app is running!');
+    expect(de).not.toBeNull();
   });
 });
