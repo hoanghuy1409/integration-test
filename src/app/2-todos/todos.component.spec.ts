@@ -41,7 +41,7 @@ describe("TodosComponent", () => {
 
   it("should load todos from the server", fakeAsync(() => {
     let service = TestBed.get(TodoService);
-
+    // fixture.debugElement.injector.get(TodoService);
     spyOn(service, "getTodosPromise").and.returnValue(
       Promise.resolve([1, 2, 3])
     );
