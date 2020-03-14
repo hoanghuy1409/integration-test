@@ -1,4 +1,3 @@
-import { TodoService } from "./2-todos/todo.service";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
@@ -10,6 +9,8 @@ import { TodosComponent } from "./2-todos/todos.component";
 import { UserDetailsComponent } from "./3-user-details/user-details.component";
 import { HomeComponent } from "./home/home.component";
 import { UsersComponent } from "./users/users.component";
+import { NavComponent } from "./nav/nav.component";
+import { TodoService } from "./2-todos/todo.service";
 import { routes } from "./app.routes";
 
 @NgModule({
@@ -19,7 +20,8 @@ import { routes } from "./app.routes";
     TodosComponent,
     UserDetailsComponent,
     VoterComponent,
-    UsersComponent
+    UsersComponent,
+    NavComponent
   ],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(routes)],
   providers: [TodoService],

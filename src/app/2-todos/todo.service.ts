@@ -15,7 +15,10 @@ export class TodoService {
   }
 
   getTodosPromise() {
-    return this.http.get("...").pipe(map((r: any) => r.json().toPromise()));
+    return this.http
+      .get("...")
+      .pipe(map((r: any) => r.json()))
+      .toPromise();
   }
 
   delete(id) {
